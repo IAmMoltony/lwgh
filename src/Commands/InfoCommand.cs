@@ -1,4 +1,4 @@
-using System.Text.Json.Nodes;
+using System;
 
 namespace Lwgh.Commands
 {
@@ -22,7 +22,16 @@ namespace Lwgh.Commands
             Console.WriteLine($"{info.Stars} stars");
             Console.WriteLine($"{info.Forks} forks");
             Console.WriteLine($"{info.Subscribers} subscribers");
-            Console.WriteLine($"License: {info.License.Name}");
+
+            if (info.License == null)
+            {
+                Console.WriteLine("No license");
+            }
+            else
+            {
+                Console.WriteLine($"License: {info.License.Name}");
+            }
+
             Console.WriteLine($"Written in {info.Language ?? "[unknown language]"}");
             Console.WriteLine($"Home page: {info.HomePage}");
             Console.WriteLine($"Default branch: {info.DefaultBranch}");
