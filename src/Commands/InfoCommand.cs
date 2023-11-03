@@ -11,13 +11,12 @@ namespace Lwgh.Commands
         public override int Run()
         {
             string repoFullName = args[1];
-            Repo? repo = Repo.Load(repoFullName);
-            if (repo == null)
+            RepoInfo? info = RepoInfo.Load(repoFullName);
+            if (info == null)
             {
-                Console.Error.WriteLine("Error: repo is null");
+                Console.Error.WriteLine("Error: info is null");
                 return 1;
             }
-            RepoInfo info = repo.info;
 
             Console.WriteLine($"Repository {repoFullName}");
             Console.WriteLine($"{info.Stars} stars");
