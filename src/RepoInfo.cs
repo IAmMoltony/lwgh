@@ -16,16 +16,16 @@ namespace Lwgh
         public int Subscribers { get; set; }
 
         [JsonPropertyName("license")]
-        public RepoLicenseInfo License { get; set; }
+        public RepoLicenseInfo? License { get; set; }
 
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public string? Language { get; set; }
 
         [JsonPropertyName("homepage")]
-        public string HomePage { get; set; }
+        public string? HomePage { get; set; }
 
         [JsonPropertyName("default_branch")]
-        public string DefaultBranch { get; set; }
+        public string? DefaultBranch { get; set; }
 
         [JsonPropertyName("open_issues_count")]
         public int OpenIssues { get; set; }
@@ -40,10 +40,10 @@ namespace Lwgh
         public bool IsFork { get; set; }
 
         [JsonPropertyName("parent")]
-        public RepoParentInfo Parent { get; set; }
+        public RepoParentInfo? Parent { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [JsonPropertyName("created_at")]
         public DateTime CreatedAt { get; set; }
@@ -55,8 +55,9 @@ namespace Lwgh
         public DateTime UpdatedAt { get; set; }
 
         [JsonPropertyName("topics")]
-        public string[] Topics { get; set; }
+        public string[]? Topics { get; set; }
 
+        // TODO extract code like this into its own function
         public static RepoInfo? Load(string url)
         {
             HttpClient client = new HttpClient();
