@@ -1,3 +1,5 @@
+using System;
+
 namespace Lwgh
 {
     namespace Commands
@@ -19,6 +21,7 @@ namespace Lwgh
                     Console.WriteLine(" help - show this help");
                     Console.WriteLine(" info - get basic info about a repository");
                     Console.WriteLine(" user - get info about a user");
+                    Console.WriteLine(" followers - view a user's followers");
                     Console.WriteLine($"\nRun 'lwgh help <command>' to get help about a specific command.");
                     return 0;
                 }
@@ -39,6 +42,11 @@ namespace Lwgh
                     Console.WriteLine("user - show info about a user");
                     Console.WriteLine("Usage: lwgh user <username>");
                     Console.WriteLine("Example: lwgh user octocat");
+                    break;
+                case "followers":
+                    Console.WriteLine("followers - show a user's followers");
+                    Console.WriteLine("Usage: lwgh followers <username> [page]");
+                    Console.WriteLine("Example: lwgh followers octocat 4");
                     break;
                 default:
                     Console.WriteLine($"Unknown command: {cmd}");
