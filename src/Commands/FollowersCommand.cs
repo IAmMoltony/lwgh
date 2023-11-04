@@ -33,12 +33,19 @@ namespace Lwgh.Commands
                 return 1;
             }
 
-            List<JsonElement> followers = JsonSerializer.Deserialize<List<JsonElement>>(response);
-            Console.WriteLine($"Page {page}");
-            for (int i = 0; i < followers.Count; i++)
+            List<JsonElement>? followers = JsonSerializer.Deserialize<List<JsonElement>>(response);
+            if (followers == null)
             {
-                string name = followers[i].GetProperty("login").GetString();
-                Console.WriteLine($"{i + 1 + 30 * (page - 1)}: @{name}");
+                Console.WriteLine($"User {userName} has no followers.");
+            }
+            else
+            {
+                Console.WriteLine($"Page {page}");
+                for (int i = 0; i < followers.Count; i++)
+                {
+                    string? name = followers[i].GetProperty("login").GetString();
+                    Console.WriteLine($"{i + 1 + 30 * (page - 1)}: @{name ?? "(unknown)"}");
+                }
             }
 
             return 0;
