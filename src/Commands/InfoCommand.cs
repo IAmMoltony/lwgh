@@ -43,15 +43,22 @@ namespace Lwgh.Commands
             }
             if (info.IsFork)
             {
-                Console.WriteLine($"Repository is a fork of {info.Parent.FullName}");
+                Console.WriteLine($"Repository is a fork of {info.Parent?.FullName}");
             }
 
             Console.WriteLine($"Description: {info.Description}");
             Console.WriteLine($"Created at {info.CreatedAt}; pushed at {info.PushedAt}; updated at " +
                               $"{info.UpdatedAt}");
 
-            string topics = string.Join(", ", info.Topics);
-            Console.WriteLine($"Topics: {topics}");
+            if (info.Topics == null)
+            {
+                Console.WriteLine("No topics");
+            }
+            else
+            {
+                string topics = string.Join(", ", info.Topics);
+                Console.WriteLine($"Topics: {topics}");
+            }
 
             return 0;
         }
