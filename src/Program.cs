@@ -17,7 +17,7 @@ namespace Lwgh
             case "followers":
                 return new Commands.FollowersCommand(args).Run();
             default:
-                Console.Error.WriteLine($"Error: please specify a command\nRun 'lwgh help' for help.");
+                Console.Error.WriteLine("Error: no command specified.\nRun 'lwgh help' for help.");
                 return 1;
             }
         }
