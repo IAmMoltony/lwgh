@@ -43,7 +43,7 @@ namespace Lwgh.Commands
             }
             if (info.IsFork)
             {
-                Console.WriteLine($"Repository is a fork of {info.Parent?.FullName}");
+                Console.WriteLine($"Repository is a fork of {info.Parent?.FullName ?? "apparently something but idk what"}");
             }
 
             Console.WriteLine($"Description: {info.Description}");
