@@ -22,6 +22,7 @@ namespace Lwgh
                     Console.WriteLine(" info - get basic info about a repository");
                     Console.WriteLine(" user - get info about a user");
                     Console.WriteLine(" followers - view a user's followers");
+                    Console.WriteLine(" languages - view the languages that a repo uses");
                     Console.WriteLine($"\nRun 'lwgh help <command>' to get help about a specific command.");
                     return 0;
                 }
@@ -47,6 +48,11 @@ namespace Lwgh
                     Console.WriteLine("followers - show a user's followers");
                     Console.WriteLine("Usage: lwgh followers <username> [page]");
                     Console.WriteLine("Example: lwgh followers octocat 4");
+                    break;
+                case "languages":
+                    Console.WriteLine("languages - show the languages that a repo uses");
+                    Console.WriteLine("Usage: lwgh langs <repo URL>");
+                    Console.WriteLine("Example: lwgh langs dotnet/sdk");
                     break;
                 default:
                     Console.WriteLine($"Unknown command: {cmd}");

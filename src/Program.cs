@@ -16,6 +16,8 @@ namespace Lwgh
                 return new Commands.UserCommand(args).Run();
             case "followers":
                 return new Commands.FollowersCommand(args).Run();
+            case "languages":
+                return new Commands.LanguagesCommand(args).Run();
             default:
                 Console.Error.WriteLine("Error: no command specified.\nRun 'lwgh help' for help.");
                 return 1;
