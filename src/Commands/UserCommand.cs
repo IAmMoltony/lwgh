@@ -19,6 +19,7 @@ namespace Lwgh.Commands
             }
 
             Console.WriteLine($"User @{userName}");
+            Console.WriteLine($"ID: {info.UserId}");
             Console.WriteLine($"Name: {info.Name}");
             Console.WriteLine($"Company: {info.Company ?? "none"}");
             Console.WriteLine($"Bio: {info.Bio ?? "none"}");

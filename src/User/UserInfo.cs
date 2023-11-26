@@ -42,6 +42,9 @@ namespace Lwgh.User
         [JsonPropertyName("email")]
         public string? Email { get; set; }
 
+        [JsonPropertyName("id")]
+        public ulong UserId { get; set; }
+
         public static UserInfo? Load(string name)
         {
             HttpClient client = new HttpClient();
