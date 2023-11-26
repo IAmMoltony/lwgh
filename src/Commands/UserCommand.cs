@@ -39,6 +39,7 @@ namespace Lwgh.Commands
             Console.WriteLine($"{info.Followers} followers; {info.Following} following");
             Console.WriteLine($"{info.Repos} repositories; {info.Gists} gists");
             Console.WriteLine($"Email: {info.Email ?? "none"}");
+            Console.WriteLine($"User type: {info.UserType ?? "idk"}");
 
             return 0;
         }

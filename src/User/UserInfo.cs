@@ -45,6 +45,9 @@ namespace Lwgh.User
         [JsonPropertyName("id")]
         public ulong UserId { get; set; }
 
+        [JsonPropertyName("type")]
+        public string? UserType { get; set; }
+
         public static UserInfo? Load(string name)
         {
             HttpClient client = new HttpClient();
