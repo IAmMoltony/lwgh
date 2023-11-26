@@ -5,6 +5,6 @@ namespace Lwgh
     public class RepoLicenseInfo
     {
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }
