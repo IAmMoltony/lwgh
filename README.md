@@ -9,3 +9,5 @@ Lwgh (lightweight GitHub) is a C# program that allows you to browse GitHub from 
 
 - [https://www.nuget.org/packages/ByteSize](ByteSize)
 - System.Text.Json
+
+Dependencies are installed automatically.
