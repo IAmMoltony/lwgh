@@ -34,7 +34,7 @@ namespace Lwgh.Commands
             }
 
             List<JsonElement>? followers = JsonSerializer.Deserialize<List<JsonElement>>(response);
-            if (followers == null)
+            if (followers == null || followers.Count() == 0)
             {
                 Console.WriteLine($"User {userName} has no followers.");
             }
