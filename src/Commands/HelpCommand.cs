@@ -6,33 +6,21 @@ namespace Lwgh
     {
         public class HelpCommand : Command
         {
-            public HelpCommand(string[] args) : base(args)
+            private static string[] ValidCmds = {
+                "help",
+                "info",
+                "user",
+                "followers",
+                "languages",
+                "octocat",
+            };
+
+            private void ShowHelpFor(string cmd)
             {
-            }
-
-            public override int Run()
-            {
-                Console.WriteLine("Lwgh - GitHub browser in the terminal");
-
-                if (args.Count() < 2)
-                {
-                    Console.WriteLine($"Usage: lwgh <command> [args]");
-                    Console.WriteLine("Commands:");
-                    Console.WriteLine(" help - show this help");
-                    Console.WriteLine(" info - get basic info about a repository");
-                    Console.WriteLine(" user - get info about a user");
-                    Console.WriteLine(" followers - view a user's followers");
-                    Console.WriteLine(" languages - view the languages that a repo uses");
-                    Console.WriteLine(" octocat - show octocat");
-                    Console.WriteLine($"\nRun 'lwgh help <command>' to get help about a specific command.");
-                    return 0;
-                }
-
-                string cmd = args[1];
                 switch (cmd)
                 {
                 case "help":
-                    Console.WriteLine("help - show commands and usage");
+                    Console.WriteLine("help - show commands and their usage");
                     break;
                 case "info":
                     Console.WriteLine("info - show basic info about a repository");
@@ -64,7 +52,45 @@ namespace Lwgh
                     break;
                 default:
                     Console.WriteLine($"Unknown command: {cmd}");
-                    return 1;
+                    break;
+                }
+
+            }
+
+            public HelpCommand(string[] args) : base(args)
+            {
+            }
+
+            public override int Run()
+            {
+                Console.WriteLine("Lwgh - GitHub browser in the terminal");
+
+                if (args.Count() < 2)
+                {
+                    Console.WriteLine($"Usage: lwgh <command> [args]");
+                    Console.WriteLine("Commands:");
+                    Console.WriteLine(" help - show this help");
+                    Console.WriteLine(" info - get basic info about a repository");
+                    Console.WriteLine(" user - get info about a user");
+                    Console.WriteLine(" followers - view a user's followers");
+                    Console.WriteLine(" languages - view the languages that a repo uses");
+                    Console.WriteLine(" octocat - show octocat");
+                    Console.WriteLine($"\nRun 'lwgh help <command>' to get help about a specific command, or 'lwgh help all' to get help about all commands (produces a lot of output).");
+                    return 0;
+                }
+
+                string cmd = args[1];
+                if (cmd == "all")
+                {
+                    foreach (string c in ValidCmds)
+                    {
+                        ShowHelpFor(c);
+                        Console.WriteLine(); // insert a newline
+                    }
+                }
+                else
+                {
+                    ShowHelpFor(cmd);
                 }
 
                 return 0;

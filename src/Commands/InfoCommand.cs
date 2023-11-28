@@ -22,6 +22,7 @@ namespace Lwgh.Commands
             Console.WriteLine($"{info.Stars} stars");
             Console.WriteLine($"{info.Forks} forks");
             Console.WriteLine($"{info.Subscribers} subscribers");
+            Console.WriteLine($"{info.OpenIssues} open issues");
 
             if (info.License == null)
             {
