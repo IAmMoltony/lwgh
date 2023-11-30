@@ -6,9 +6,7 @@ namespace Lwgh
     {
         public static int Main(string[] args)
         {
-            //Settings.InitSettingsDict();
-            //Settings.SettingsDict["test"] = "a";
-            //Settings.WriteSettings();
+            Settings.ReadSettings();
 
             string cmd = args.Count() == 0 ? "" : args[0];
             switch (cmd)
