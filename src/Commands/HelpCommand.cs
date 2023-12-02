@@ -52,7 +52,6 @@ namespace Lwgh.Commands
                 Console.WriteLine($"Unknown command: {cmd}");
                 break;
             }
-
         }
 
         public HelpCommand(string[] args) : base(args)
