@@ -1,19 +1,17 @@
 using System;
 
-namespace Lwgh
+namespace Lwgh.Commands
 {
-    namespace Commands
+    public abstract class Command
     {
-        public abstract class Command
+        protected string[] args;
+
+        public Command(string[] args)
         {
-            protected string[] args;
-
-            public Command(string[] args)
-            {
-                this.args = args;
-            }
-
-            public abstract int Run();
+            this.args = args;
         }
+
+        public abstract int Run();
     }
 }
+
