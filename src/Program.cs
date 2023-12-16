@@ -23,8 +23,11 @@ namespace Lwgh
                 return new Commands.LanguagesCommand(args).Run();
             case "octocat":
                 return new Commands.OctocatCommand(args).Run();
-            default:
+            case "":
                 Console.Error.WriteLine("Error: no command specified.\nRun 'lwgh help' for help.");
+                return 1;
+            default:
+                Console.Error.WriteLine("Error: unknown command specified.\nRun 'lwgh help' for help.");
                 return 1;
             }
         }
